@@ -34,11 +34,11 @@ upgrade-linux: ## Upgrade system OS
 
 shortcuts-linux: ## Create links from files
 	rm $HOME/.zshrc
-	ln -s $HOME/.dotfiles/.zshrc $HOME/.zshrc
+	ln -s $HOME/.dotfiles/zsh/.zshrc $HOME/.zshrc
 	rm $HOME/.xprofile
-	ln -s $HOME/.dotfiles/.xprofile $HOME/.xprofile
+	ln -s $HOME/.dotfiles/linux/.xprofile $HOME/.xprofile
 	rm $HOME/.gitconfig
-	ln -s $HOME/.dotfiles/.gitconfig $HOME/.gitconfig
+	ln -s $HOME/.dotfiles/git/.gitconfig $HOME/.gitconfig
 
 spaceship: ## Install themes spaceship
 	git clone https://github.com/denysdovhan/spaceship-prompt.git "$ZSH_CUSTOM/themes/spaceship-prompt"

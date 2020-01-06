@@ -1,6 +1,20 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
+export PLATFORM=""
+export AMIGO_PATH=""
+
+if [[ "$OSTYPE" == "linux-gnu" ]]; then
+  PLATFORM="linux"
+  AMIGO_PATH="/opt/lampp/htdocs/amigo"
+elif [[ "$OSTYPE" == "darwin"* ]]; then
+  PLATFORM="macos"
+  AMIGO_PATH="/Applications/XAMPP/xamppfiles/htdocs/amigo"
+else
+  PLATFORM="unknown"
+  AMIGO_PATH="unknown"
+fi
+
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 export DOTFILES_PATH="$HOME/.dotfiles"
@@ -106,10 +120,13 @@ export EDITOR='vim'
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-source $DOTFILES_PATH/.paths
-source $DOTFILES_PATH/.aliases
-source $DOTFILES_PATH/.spaceship
-source $DOTFILES_PATH/.zplugin
+if [[ "$PLATFORM" == "linux" ]]; then
+  source $DOTFILES_PATH/linux/.paths
+fi
+
+source $DOTFILES_PATH/$PLATFORM/.aliases
+source $DOTFILES_PATH/zsh/.spaceship
+source $DOTFILES_PATH/zsh/.zplugin
 
 function amigo_build_all() {
     local apiBuildNumber=$1
@@ -133,7 +150,7 @@ function amigo_build_all() {
     print "  - amigohub/dev-api:$apiBuildNumber ..."
     print "  - amigohub/dev-front:$frontBuildNumber ..."
 
-    cd "/opt/lampp/htdocs/amigo"
+    cd $AMIGO_PARH
     docker build -q -t amigohub/dev-api:$1 ./server
     docker build -q -t amigohub/dev-front:$2 ./client
 
@@ -165,7 +182,7 @@ function amigo_push_all() {
     print "  - amigohub/dev-api:$apiBuildNumber"
     print "  - amigohub/dev-front:$frontBuildNumber"
 
-    cd "/opt/lampp/htdocs/amigo"
+    cd $AMIGO_PARH
     docker push amigohub/dev-api:$1
     docker push amigohub/dev-front:$2
 
