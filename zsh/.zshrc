@@ -150,7 +150,7 @@ function amigo_build_all() {
     print "  - amigohub/dev-api:$apiBuildNumber ..."
     print "  - amigohub/dev-front:$frontBuildNumber ..."
 
-    cd $AMIGO_PARH
+    cd $AMIGO_PATH
     docker build -q -t amigohub/dev-api:$1 ./server
     docker build -q -t amigohub/dev-front:$2 ./client
 
@@ -182,7 +182,7 @@ function amigo_push_all() {
     print "  - amigohub/dev-api:$apiBuildNumber"
     print "  - amigohub/dev-front:$frontBuildNumber"
 
-    cd $AMIGO_PARH
+    cd $AMIGO_PATH
     docker push amigohub/dev-api:$1
     docker push amigohub/dev-front:$2
 
