@@ -120,10 +120,7 @@ export EDITOR='vim'
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-if [[ "$PLATFORM" == "linux" ]]; then
-  source $DOTFILES_PATH/linux/.paths
-fi
-
+source $DOTFILES_PATH/$PLATFORM/.paths
 source $DOTFILES_PATH/$PLATFORM/.aliases
 source $DOTFILES_PATH/zsh/.spaceship
 source $DOTFILES_PATH/zsh/.zplugin
