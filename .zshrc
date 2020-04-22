@@ -109,66 +109,56 @@ export EDITOR='vim'
 source $DOTFILES_PATH/.paths
 source $DOTFILES_PATH/.aliases
 source $DOTFILES_PATH/.spaceship
-source $DOTFILES_PATH/.zplugin
+source $DOTFILES_PATH/.zinit
 
 function amigo_build_all() {
-    local apiBuildNumber=$1
-    local frontBuildNumber=$2
+    local buildNumber=$1
 
     if [ "$1" = "" ]; then
         print " Error!! "
-        print "  - Build number to API is required!"
-        return;
-    fi
-
-    if [ "$2" = "" ]; then
-        print " Error!! "
-        print "  - Build number to FRONT is required!"
+        print "  - Build number is required!"
         return;
     fi
 
     clear
 
     print " Preparing build ..."
-    print "  - amigohub/dev-api:$apiBuildNumber ..."
-    print "  - amigohub/dev-front:$frontBuildNumber ..."
+    print "  - amigohub/dev-api:$buildNumber ..."
+    print "  - amigohub/dev-front:$buildNumber ..."
 
     cd "/opt/lampp/htdocs/amigo"
-    docker build -q -t amigohub/dev-api:$1 ./server
-    docker build -q -t amigohub/dev-front:$2 ./client
+    docker build -q -t amigohub/dev-api:$buildNumber ./server
+    docker build -q -t amigohub/dev-front:$buildNumber ./client
 
     clear
 
     print " Success!"
-    print "  - amigohub/dev-api:$apiBuildNumber OK"
-    print "  - amigohub/dev-front:$frontBuildNumber OK"
+    print "  - amigohub/dev-api:$buildNumber OK"
+    print "  - amigohub/dev-front:$buildNumber OK"
     print ""
 }
 
 function amigo_push_all() {
-    local apiBuildNumber=$1
-    local frontBuildNumber=$2
+    local buildNumber=$1
 
     if [ "$1" = "" ]; then
         print " Error!! "
-        print "  - Build number to API is required!"
+        print "  - Build number is required!"
         return;
     fi
 
-    if [ "$2" = "" ]; then
-        print " Error!! "
-        print "  - Build number to FRONT is required!"
-        return;
-    fi
+    clear
 
     print " Pushing ..."
-    print "  - amigohub/dev-api:$apiBuildNumber"
-    print "  - amigohub/dev-front:$frontBuildNumber"
+    print "  - amigohub/dev-api:$buildNumber"
+    print "  - amigohub/dev-front:$buildNumber"
 
     cd "/opt/lampp/htdocs/amigo"
-    docker push amigohub/dev-api:$1
-    docker push amigohub/dev-front:$2
+    docker push amigohub/dev-api:$buildNumber
+    docker push amigohub/dev-front:$buildNumber
 
     print " Success!"
+    print "  - amigohub/dev-api:$buildNumber OK"
+    print "  - amigohub/dev-front:$buildNumber OK"
     print ""
 }

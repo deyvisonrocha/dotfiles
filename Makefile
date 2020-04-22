@@ -1,31 +1,36 @@
 .PHONY: all
-all: upgrade-os shortcuts spaceship zshplugin ## Install all pre-requisites
+all: enpass upgrade-os shortcuts spaceship zinit ## Install all pre-requisites
 
 .PHONY: upgrade-os
 upgrade-os: ## Upgrade system OS
 	sudo apt update
 	sudo apt upgrade -y
-	sudo apt install curl git zsh wget vim fonts-powerline
-	#sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+	sudo apt install curl git zsh wget vim fonts-powerline enpass -y
+	sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 	sudo apt autoremove -y && sudo apt autoclean -y
 
 .PHONY: shortcuts
 shortcuts: ## Create links from files
-	rm $HOME/.zshrc
-	ln -s $HOME/.dotfiles/.zshrc $HOME/.zshrc
-	rm $HOME/.xprofile
-	ln -s $HOME/.dotfiles/.xprofile $HOME/.xprofile
-	rm $HOME/.gitconfig
-	ln -s $HOME/.dotfiles/.gitconfig $HOME/.gitconfig
+	rm -f $$HOME/.zshrc
+	ln -s $$HOME/.dotfiles/.zshrc $$HOME/.zshrc
+	rm -f $$HOME/.xprofilee
+	ln -s $$HOME/.dotfiles/.xprofile $$HOME/.xprofile
+	rm -f $$HOME/.gitconfig
+	ln -s $$HOME/.dotfiles/.gitconfig $$HOME/.gitconfig
 
 .PHONY: spaceship
 spaceship: ## Install themes spaceship
-	git clone https://github.com/denysdovhan/spaceship-prompt.git "$ZSH_CUSTOM/themes/spaceship-prompt"
-	ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme"
+	$(shell git clone https://github.com/denysdovhan/spaceship-prompt.git $$ZSH_CUSTOM/themes/spaceship-prompt)
+	$(shell ln -sf "$$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$$ZSH_CUSTOM/themes/spaceship.zsh-theme")
 
-.PHONY: zshplugin
-zshplugin: ## Install ZPlugin to ZSH
-	sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zplugin/master/doc/install.sh)"
+.PHONY: zinit
+zinit: ## Install Zinit to ZSH
+	sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zinit/master/doc/install.sh)"
+
+.PHONY: enpass
+enpass: ## Install Zinit to ZSH
+	sudo echo "deb https://apt.enpass.io/ stable main" > /etc/apt/sources.list.d/enpass.list
+	wget -qO - https://apt.enpass.io/keys/enpass-linux.key | sudo apt-key add -
 
 .PHONY: help
 help:
