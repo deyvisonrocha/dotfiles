@@ -1,45 +1,48 @@
 [user]
-    name = "Deyvison Rocha"
-    email = deyvison@gmail.com
+  name = Deyvison Rocha
+  email = deyvison@gmail.com
+[init]
+	defaultBranch = main
 [core]
-    editor = vim
-    fileMode = false
+  editor = vim
+  fileMode = false
+  excludesfile = /Users/deyvisonrocha/.gitignore_global
 [push]
-    default = matching
+  default = matching
 [color]
-    ui = auto
+  ui = auto
 [color "branch"]
-    current = yellow bold
-    local = green bold
-    remote = cyan bold
+  current = yellow bold
+  local = green bold
+  remote = cyan bold
 [color "diff"]
-    meta = yellow bold
-    frag = magenta bold
-    old = red bold
-    new = green bold
-    whitespace = red reverse
+  meta = yellow bold
+  frag = magenta bold
+  old = red bold
+  new = green bold
+  whitespace = red reverse
 [color "status"]
-    added = green bold
-    changed = yellow bold
-    untracked = red bold
+  added = green bold
+  changed = yellow bold
+  untracked = red bold
 [difftool]
-    prompt = false
+  prompt = false
 [alias]
-    st = status
-    cm = commit -m
-    co = checkout
-    mg = merge --no-ff
-    ai = add -i
-    a = add --all
-    d = diff
-    ps = push
-    pl = pull --rebase
-    pr = pull --rebase
-    l = log --oneline
-    lg = log --oneline --graph --decorate
-    ss = stash
-    sp = stash pop
-    cp = cherry-pick
+  st = status
+  cm = commit -m
+  co = checkout
+  mg = merge --no-ff
+  ai = add -i
+  a = add --all
+  d = diff
+  ps = push
+  pl = pull --rebase
+  pr = pull --rebase
+  l = log --oneline
+  lg = log --oneline --graph --decorate
+  ss = stash
+  sp = stash pop
+  cp = cherry-pick
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
