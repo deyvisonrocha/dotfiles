@@ -6,7 +6,7 @@
 [core]
   editor = vim
   fileMode = false
-  excludesfile = /Users/deyvisonrocha/.gitignore_global
+	excludesFile = ~/.gitignore
 [push]
   default = matching
 [color]
