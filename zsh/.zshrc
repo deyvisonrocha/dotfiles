@@ -3,7 +3,7 @@ export ZSH="$HOME/.oh-my-zsh"
 export DOTFILES_PATH="$HOME/.dotfiles"
 export EDITOR='nvim'
 
-ZSH_THEME="spaceship"
+source "/opt/homebrew/opt/spaceship/spaceship.zsh"
 
 plugins=(
   git
