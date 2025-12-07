@@ -36,6 +36,3 @@ load-nvmrc() {
 }
 add-zsh-hook chpwd load-nvmrc
 load-nvmrc
-
-# 1password
-eval "$(op completion zsh)"; compdef _op op
