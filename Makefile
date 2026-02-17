@@ -16,11 +16,11 @@ brew: ## Install brew and packages
 
 shortcuts: ## Create links from files
 	mv $$HOME/.zshrc $$HOME/.zshrc.bak
-	ln -s $$HOME/.dotfiles/zsh/.zshrc $$HOME/.zshrc
+	ln -s $$HOME/.dotfiles/home/.zshrc $$HOME/.zshrc
 	mv $$HOME/.gitconfig $$HOME/.gitconfig.bak
 	mv $$HOME/.gitignore_global $$HOME/.gitignore_global.bak
-	ln -s $$HOME/.dotfiles/git/.gitconfig $$HOME/.gitconfig
-	ln -s $$HOME/.dotfiles/git/.gitignore_global $$HOME/.gitignore_global
+	ln -s $$HOME/.dotfiles/home/.gitconfig $$HOME/.gitconfig
+	ln -s $$HOME/.dotfiles/home/.gitignore_global $$HOME/.gitignore_global
 
 spaceship: ## Install themes spaceship
 	git clone https://github.com/denysdovhan/spaceship-prompt.git "$$ZSH_CUSTOM/themes/spaceship-prompt"

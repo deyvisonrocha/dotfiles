@@ -15,7 +15,7 @@ plugins=(
 
 # Sources
 source $ZSH/oh-my-zsh.sh
-source $DOTFILES_PATH/zsh/.paths
-source $DOTFILES_PATH/zsh/.aliases
-source $DOTFILES_PATH/zsh/.functions
-source $DOTFILES_PATH/zsh/.zinit
+source $DOTFILES_PATH/zsh/config/paths.zsh
+source $DOTFILES_PATH/zsh/config/aliases.zsh
+source $DOTFILES_PATH/zsh/config/functions.zsh
+source $DOTFILES_PATH/zsh/config/zinit
