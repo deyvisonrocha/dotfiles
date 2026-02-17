@@ -1,17 +1,20 @@
 # dotfiles
 
-**Table of Contents**
+Configurações do meu ambiente para macOS.
 
-<!-- toc -->
+## Install
 
-- [Installing](#installing)
-
-<!-- tocstop -->
-
-## Installing
-
-```console
-$ make
+```bash
+make
 ```
 
-This will create symlinks from this repo to your home folder.
+## Targets disponíveis
+
+| Target | Descrição |
+|--------|-----------|
+| `make` | Instalação completa (core-macos) |
+| `make brew` | Homebrew + pacotes |
+| `make ohmyzsh` | Oh My Zsh |
+| `make spaceship` | Tema Spaceship |
+| `make zinit` | ZInit plugin manager |
+| `make shortcuts` | Symlinks de configuração |
