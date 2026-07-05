@@ -37,6 +37,7 @@ setup-fish: ## Setup com fish (brew, symlinks, fisher, node, chsh)
 
 shortcuts-fish: ## Symlinks do fish, ghostty e starship
 	mkdir -p $(HOME)/.config/fish/conf.d $(HOME)/.config/fish/functions $(HOME)/.config/ghostty
+	@test -f $(DOTFILES)/fish/conf.d/private.fish || printf '# Aliases/env privados — NAO versionado (gitignored).\nstatus is-interactive; or exit\n' > $(DOTFILES)/fish/conf.d/private.fish
 	@if [ -f $(HOME)/.config/fish/config.fish ] && [ ! -L $(HOME)/.config/fish/config.fish ]; then mv $(HOME)/.config/fish/config.fish $(HOME)/.config/fish/config.fish.pre-dotfiles; fi
 	ln -sf $(DOTFILES)/fish/config.fish   $(HOME)/.config/fish/config.fish
 	ln -sf $(DOTFILES)/fish/fish_plugins  $(HOME)/.config/fish/fish_plugins

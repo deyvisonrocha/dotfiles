@@ -1,0 +1,7 @@
+# Aliases/segredos locais do fish — nunca versionar
+fish/conf.d/private.fish
+fish/conf.d/*.private.fish
+fish/conf.d/*.local.fish
+
+# macOS
+.DS_Store
