@@ -1,0 +1,52 @@
+# ~/.config/ghostty/config
+
+# Shell: usa o fish direto (mantém o zsh como fallback do sistema)
+command = /opt/homebrew/bin/fish
+
+# Fonte (Nerd Font necessária p/ ícones do eza/starship)
+font-family = JetBrainsMono Nerd Font Mono
+font-size = 15
+font-thicken = true
+
+# Tema
+theme = Dracula
+
+# Janela
+background-opacity = 0.96
+background-blur-radius = 20
+window-padding-x = 10
+window-padding-y = 8
+window-save-state = always
+macos-titlebar-style = tabs
+foreground = #f8f8f2
+palette = 0=#21222c
+palette = 1=#ff5555
+palette = 2=#50fa7b
+palette = 3=#f1fa8c
+palette = 4=#bd93f9
+palette = 5=#ff79c6
+palette = 6=#8be9fd
+palette = 7=#f8f8f2
+palette = 8=#6272a4
+palette = 9=#ff6e6e
+palette = 10=#69ff94
+palette = 11=#ffffa5
+palette = 12=#d6acff
+palette = 13=#ff92df
+palette = 14=#a4ffff
+palette = 15=#ffffff
+selection-background = #44475a
+selection-foreground = #ffffff
+background = #282a36
+cursor-color = #f8f8f2
+cursor-style-blink = true
+cursor-text = #282a36
+
+# Comportamento
+cursor-style = block
+mouse-hide-while-typing = true
+copy-on-select = clipboard
+confirm-close-surface = false
+
+# ALT como Meta (necessário p/ ALT-C do fzf no macOS)
+macos-option-as-alt = true
