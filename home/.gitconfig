@@ -1,12 +1,13 @@
 [user]
   name = Deyvison Rocha
   email = deyvison@gmail.com
+	signingkey = ~/.ssh/id_ed25519.pub
 [init]
 	defaultBranch = main
 [core]
   editor = vim
   fileMode = false
-	excludesFile = ~/.gitignore_global
+	excludesFile = /Users/deyvisonrocha/.gitignore_global
 [push]
   default = matching
 [color]
@@ -48,3 +49,13 @@
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
+[commit]
+	gpgsign = true
+[gpg]
+	format = ssh
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path =
+[mergetool "sourcetree"]
+	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
