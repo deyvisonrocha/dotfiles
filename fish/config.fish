@@ -1,3 +1,7 @@
+# The following lines were added by Docker Desktop to add commands to your PATH.
+export PATH="$PATH:$HOME/.docker/bin"
+# End of Docker Desktop section.
+
 # ~/.config/fish/config.fish
 # Entry point. Env/PATH, aliases, tools e nvm ficam em conf.d/*.fish
 # (carregados automaticamente pelo fish, em ordem alfabética, antes deste arquivo).

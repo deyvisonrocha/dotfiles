@@ -5,7 +5,7 @@ command = /opt/homebrew/bin/fish
 
 # Fonte (Nerd Font necessária p/ ícones do eza/starship)
 font-family = JetBrainsMono Nerd Font Mono
-font-size = 15
+font-size = 16
 font-thicken = true
 
 # Tema
@@ -50,3 +50,5 @@ confirm-close-surface = false
 
 # ALT como Meta (necessário p/ ALT-C do fzf no macOS)
 macos-option-as-alt = true
+
+shell-integration-features = sudo,ssh-env,ssh-terminfo

@@ -3,5 +3,8 @@ fish/conf.d/private.fish
 fish/conf.d/*.private.fish
 fish/conf.d/*.local.fish
 
+# Aliases/segredos locais do zsh — nunca versionar
+zsh/config/private.zsh
+
 # macOS
 .DS_Store
