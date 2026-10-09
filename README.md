@@ -1,6 +1,6 @@
 # dotfiles
 
-Configurações do meu ambiente para macOS. Shell: **fish** + **Ghostty**.
+Configurações do meu ambiente para macOS. Shell: **fish** + **kitty**.
 
 ## Install
 
@@ -18,7 +18,8 @@ make zsh                 # atalho -> zsh
 | Ferramenta | Papel |
 |------------|-------|
 | [fish](https://fishshell.com) | Shell principal |
-| [Ghostty](https://ghostty.org) | Terminal |
+| [kitty](https://sw.kovidgoyal.net/kitty/) | Terminal (`kitty/`) |
+| [Ghostty](https://ghostty.org) | Terminal alternativo |
 | [Starship](https://starship.rs) | Prompt |
 | [zoxide](https://github.com/ajeetdsouza/zoxide) | `cd` inteligente (`z`) |
 | [fzf](https://github.com/junegunn/fzf) | Fuzzy finder (CTRL-R/T, ALT-C) |
@@ -54,6 +55,7 @@ fish/
 | `make brew` | Homebrew + pacotes |
 | `make shortcuts-fish` | Symlinks fish, ghostty, starship |
 | `make shortcuts-zsh` | Symlink do `.zshrc` |
+| `make shortcuts-kitty` | Symlinks do kitty (`kitty.conf` + `dracula.conf`) |
 | `make shortcuts-git` | Symlinks do git (compartilhado) |
 | `make fisher` | fisher + plugins do `fish_plugins` |
 | `make node` | Node LTS via nvm.fish |

@@ -97,6 +97,8 @@ cask "google-chrome"
 cask "iterm2"
 # File archiver
 cask "keka"
+# GPU-based terminal emulator
+cask "kitty"
 # App to manage software development and track bugs
 cask "linear"
 # Modern GUI for Redis

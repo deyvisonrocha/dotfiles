@@ -31,6 +31,7 @@ setup-fish: ## Setup com fish (brew, symlinks, fisher, node, chsh)
 	$(MAKE) brew
 	$(MAKE) shortcuts-git
 	$(MAKE) shortcuts-fish
+	$(MAKE) shortcuts-kitty
 	$(MAKE) fisher
 	$(MAKE) node
 	$(MAKE) default-shell TARGET_SHELL=fish
@@ -58,6 +59,7 @@ setup-zsh: ## Setup com zsh (brew, oh-my-zsh, symlinks, chsh)
 	$(MAKE) ohmyzsh
 	$(MAKE) shortcuts-git
 	$(MAKE) shortcuts-zsh
+	$(MAKE) shortcuts-kitty
 	$(MAKE) default-shell TARGET_SHELL=zsh
 
 ohmyzsh: ## Instala oh-my-zsh (zinit e spaceship carregam via .zshrc/brew)
@@ -76,10 +78,15 @@ shortcuts-git: ## Symlinks do git
 	ln -sf $(DOTFILES)/home/.gitconfig $(HOME)/.gitconfig
 	ln -sf $(DOTFILES)/home/.gitignore_global $(HOME)/.gitignore_global
 
+shortcuts-kitty: ## Symlinks do kitty (kitty.conf + tema)
+	mkdir -p $(HOME)/.config/kitty
+	@if [ -f $(HOME)/.config/kitty/kitty.conf ] && [ ! -L $(HOME)/.config/kitty/kitty.conf ]; then mv $(HOME)/.config/kitty/kitty.conf $(HOME)/.config/kitty/kitty.conf.pre-dotfiles; fi
+	for f in $(DOTFILES)/kitty/*.conf; do ln -sf "$$f" $(HOME)/.config/kitty/; done
+
 default-shell: ## Define o shell de login (TARGET_SHELL=fish|zsh)
 	@grep -qx $(LOGIN_SHELL) /etc/shells || echo $(LOGIN_SHELL) | sudo tee -a /etc/shells
 	chsh -s $(LOGIN_SHELL)
 
-.PHONY: all setup fish zsh setup-fish setup-zsh shortcuts-fish shortcuts-zsh shortcuts-git fisher node ohmyzsh brew default-shell help
+.PHONY: all setup fish zsh setup-fish setup-zsh shortcuts-fish shortcuts-zsh shortcuts-kitty shortcuts-git fisher node ohmyzsh brew default-shell help
 help: ## Command help
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
