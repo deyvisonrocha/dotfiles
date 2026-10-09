@@ -17,7 +17,7 @@ background-blur-radius = 20
 window-padding-x = 10
 window-padding-y = 8
 window-save-state = always
-macos-titlebar-style = tabs
+macos-titlebar-style = transparent
 foreground = #f8f8f2
 palette = 0=#21222c
 palette = 1=#ff5555
